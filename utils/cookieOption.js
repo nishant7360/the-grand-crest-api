@@ -1,7 +1,9 @@
+const isProd = process.env.NODE_ENV === "production";
+
 const cookieOptions = {
   httpOnly: true,
-  secure: true,
-  sameSite: "none",
+  secure: isProd, // false on localhost
+  sameSite: isProd ? "none" : "lax",
   path: "/",
 };
 
