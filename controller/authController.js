@@ -4,7 +4,7 @@ const { getPublicIdFromUrl } = require("../utils/getFile");
 const cloudinary = require("../utils/cloudinary");
 const AppError = require("../utils/appError");
 const { promisify } = require("util");
-const { cookieOptions } = require("../utils/cookieOption");
+const cookieOptions = require("../utils/cookieOption");
 
 const jwtToken = (id) => {
   return jwt.sign({ id }, process.env.JWT_SECRET, {
