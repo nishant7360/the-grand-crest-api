@@ -35,6 +35,14 @@ app.use(cookieParser());
 app.use(morgan("dev"));
 app.use(helmet());
 
+app.get("/health", (req, res) => {
+  res.status(200).json({
+    status: "OK",
+    uptime: process.uptime(),
+    timestamp: new Date().toISOString(),
+  });
+});
+
 app.use("/api/v1/cabins", cabinRouter);
 app.use("/api/v1/guests", guestRouter);
 app.use("/api/v1/settings", settingsRouter);
